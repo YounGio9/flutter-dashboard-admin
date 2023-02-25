@@ -24,7 +24,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             NavigationRailDestination(
                 icon: Icon(Icons.home), label: Text("Home")),
             NavigationRailDestination(
-                icon: Icon(Icons.bar_chart), label: Text("Rapports")),
+                icon: Icon(Icons.add), label: Text("Ajouter")),
             NavigationRailDestination(
                 icon: Icon(Icons.person), label: Text("Profile")),
             NavigationRailDestination(
@@ -38,8 +38,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
         Expanded(
           child: Padding(
             padding: EdgeInsets.all(60.0),
-            child: SingleChildScrollView(
-                child: Column(
+            child:  SingleChildScrollView(
+                child: selectedIndex == 0 ? Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -321,7 +321,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ],
                 )
               ],
-            )),
+            ) : selectedIndex == 1 ? Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Ajouter une voiture")
+              ]
+              ) : Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+              children: []
+              )
+              
+            ),
           ),
         )
       ]),
