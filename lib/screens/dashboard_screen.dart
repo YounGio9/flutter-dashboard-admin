@@ -383,33 +383,36 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         hintText: 'Ex: peugeot',
                                       ),
                                     ),
-                                    SizedBox(height: 50,),
+                                    SizedBox(
+                                      height: 50,
+                                    ),
                                     ElevatedButton(
-                                      child: Text('Ajouter'),
-                                        onPressed: () => showDialog(  
-                      context: context,  
-                      builder: (context) {  
-                        return AlertDialog(  
-                          title: Text("Alert Message"),  
-                          // Retrieve the text which the user has entered by  
-                          // using the TextEditingController.  
-                          content: Text(nameController.text),  
-                          actions: <Widget>[  
-                            new ElevatedButton(  
-                              child: new Text('OK'),  
-                              onPressed: () {  
-                                Navigator.of(context).pop();  
-                              },  
-                            )  
-                          ],  
-                        );  
-                      },  
-                    ) 
-                   
-                )  ,
-                                        
-                                        
-                                        
+                                        child: Text('Ajouter'),
+                                        onPressed: () => showDialog(
+                                              context: context,
+                                              builder: (context) {
+                                                return AlertDialog(
+                                                  title: Text("Alert Message"),
+                                                  content: Text(nameController
+                                                              .text.isEmpty ||
+                                                          brandController
+                                                              .text.isEmpty ||
+                                                          carNumberController
+                                                              .text.isEmpty
+                                                      ? 'Veuillez bien remplir le formulaire'
+                                                      : 'Véhicule ajouté'),
+                                                  actions: <Widget>[
+                                                    new ElevatedButton(
+                                                      child: new Text('OK'),
+                                                      onPressed: () {
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                      },
+                                                    )
+                                                  ],
+                                                );
+                                              },
+                                            )),
                                   ]),
                                 )
                               ])
